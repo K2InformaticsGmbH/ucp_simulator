@@ -13,4 +13,4 @@ if [ "$#" -ne 1 ]; then
     listen_port=""
 fi
 
-$exename -pa deps/*/ebin -pa ebin $listen_port -boot start_sasl -s lager -s ucp_simulator_app
+$exename -sname $1_ucp -pa deps/*/ebin -pa ebin $listen_port -boot start_sasl -s lager -s ucp_simulator_app

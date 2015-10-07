@@ -58,6 +58,7 @@ handle_call(Msg, From, State) ->
 
 handle_cast(accept, State = #state{lsock = S}) ->
     {ok, Sock} = gen_tcp:accept(S),
+    ucp_simulator_sup:start_child(),
     ?SYS_INFO("Accepting: ~p", [Sock]),
     {noreply, State#state{sock = Sock}};
 
